@@ -35,8 +35,6 @@ print(f"""
    ------
      XX
 {hands}----XX----{hands}
-{"    XXXX\n" * int((height-11)/2)}
-    ====
-{"   ||  ||\n" * int((height-11)/2)}
- {feet}  {feet}
+{"    XXXX\n" * int((height-11)/2)}    ====
+{"   ||  ||\n" * int((height-11)/2)} {feet}  {feet}
 """)
