@@ -12,19 +12,6 @@ def main():
             remove_from_todo_list(number)
     print('Goodbye!')
 
-"""
-show, add, remove, or exit? show
-Nothing in the list!
-show, add, remove, or exit? add
-What task needs to be added? Do the Laundry
-show, add, remove, or exit? add
-What task needs to be added? Go to the Gym
-show, add, remove, or exit? show
-  * (1) Do the Laundry
-  * (2) Go to the Gym
-show, add, remove, or exit? exit
-Goodbye!
-"""
 
 def show_todo_list():
     with open('to-do-list.txt', 'r') as data_file:
@@ -36,13 +23,14 @@ def show_todo_list():
         else:
             line_num = 1
             for line in todo_list:
-                print(f'  * ({line_num}) {line}')
+                print(f'  * ({line_num}) {line.strip()}')  # the .strip method removes trailing spaces and line break at the end of the line, since print already adds a line break, we dont need two
                 line_num += 1
 
 
 def add_to_todo_list(item):
     with open('to-do-list.txt', 'a') as data_file:
-        data_file.write(item + '\n')
+        data_file.write('\n' + item)
+
 
 def remove_from_todo_list(num):
     with open('to-do-list.txt', 'r') as file_reader:
@@ -57,8 +45,6 @@ def remove_from_todo_list(num):
         print(f"Removed item {num}.")
     else:
         print("Invalid item number.")
-
-
 
 
 main()
